@@ -4745,7 +4745,6 @@ queue_and_out:
 		else if (tcp_try_rmem_schedule(sk, skb, skb->truesize)) {
 			NET_INC_STATS(sock_net(sk), LINUX_MIB_TCPRCVQDROP);
 			sk->sk_data_ready(sk);
-			DROPDUMP_QUEUE_SKB(skb, NET_DROPDUMP_OPT_TCP_RMEMSCHEDULEFAIL);
 			goto drop;
 		}
 
